@@ -42,7 +42,8 @@ ggseg(atlas = tracula, mapping = aes(fill = region)) +
 
 ``` r
 ggseg3d(atlas = tracula_3d) %>% 
-  add_glassbrain()
+  add_glassbrain() %>% 
+  pan_camera("right lateral")
 ```
 
 <!-- ```{r "orca", include=FALSE} -->
