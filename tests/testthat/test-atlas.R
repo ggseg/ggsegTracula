@@ -1,3 +1,4 @@
+# ggseg ----
 context("test-adapt_scales")
 test_that("Check that ggseg:::adapt_scales is working", {
   expect_equal(mode(ggseg:::adapt_scales(unnest(tracula, ggseg))), "list")
@@ -10,6 +11,13 @@ test_that("check new palettes work", {
   expect_error(brain_pal("tracula"), "not a valid")
 
   expect_true(all(names(brain_pal("tracula", package = "ggsegTracula")) %in% tracula$region))
+})
+
+context("test-ggseg-atlas")
+test_that("atlases are true ggseg atlases", {
+
+  expect_true(is_ggseg_atlas(tracula))
+
 })
 
 context("test-ggseg")
@@ -35,6 +43,7 @@ test_that("Check that polygon atlases are working", {
 })
 
 
+# ggseg3d ----
 context("test-ggseg3d")
 test_that("Check that mesh atlases are working", {
   expect_is(
@@ -44,12 +53,6 @@ test_that("Check that mesh atlases are working", {
 })
 
 
-context("test-ggseg-atlas")
-test_that("atlases are true ggseg atlases", {
-
-  expect_true(is_ggseg_atlas(tracula))
-
-})
 
 context("test-ggseg3d-atlas")
 test_that("atlases are true ggseg3d atlases", {
