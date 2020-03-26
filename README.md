@@ -40,6 +40,35 @@ ggseg(atlas = tracula, mapping = aes(fill = region)) +
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
+``` r
+ggseg3d(atlas = tracula_3d) %>% 
+  add_glassbrain()
+```
+
+<!-- ```{r "orca", include=FALSE} -->
+
+<!-- p <- ggseg3d(atlas = tracula_3d) %>%  -->
+
+<!--   add_glassbrain(hemisphere = "left")%>% -->
+
+<!--   pan_camera("right lateral") %>%  -->
+
+<!--   plotly::add_annotations( text="Screen capture", -->
+
+<!--                   legendtitle=TRUE, showarrow=FALSE, -->
+
+<!--                   font = list(color = "#000000b4", -->
+
+<!--                               family = 'sans serif', -->
+
+<!--                               size = 50)) -->
+
+<!-- plotly::orca(p, "man/figures/README-3d-plot.png") -->
+
+<!-- ``` -->
+
+<img src="man/figures/README-3d-plot.png" width="100%" />
+
 Please note that the ‘ggsegTracula’ project is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
 this project, you agree to abide by its terms.
