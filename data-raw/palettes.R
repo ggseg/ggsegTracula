@@ -15,3 +15,7 @@ brain_pals = list(
 )
 usethis::use_data(brain_pals, internal = TRUE, overwrite = TRUE)
 
+devtools::load_all("../../ggsegExtra/")
+tracula_3d <- ggsegExtra:::restruct_old_3datlas(tracula_3d)
+tracula_3d <- as_ggseg3d_atlas(tracula_3d)
+usethis::use_data(tracula_3d, internal = FALSE, overwrite = TRUE)
