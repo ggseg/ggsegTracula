@@ -16,6 +16,11 @@ coverage](https://codecov.io/gh/LCBC-UiO/ggsegTracula/branch/master/graph/badge.
 This package contains dataset for plotting the Tracula white matter
 tracts with ggseg and ggseg3d.
 
+Yendiki et al. (2011) *Automated probabilistic reconstruction of
+white-matter pathways in health and disease using an atlas of the
+underlying anatomy*. Front. Neuroinform. 5:23.
+[doi: 10.3389/fninf.2011.00023](https://www.ncbi.nlm.nih.gov/pubmed/22016733)
+
 ## Installation
 
 You can install the released version of ggsegTracula from
