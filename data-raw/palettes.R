@@ -1,21 +1,35 @@
-brain_pals = list(
-  tracula = c(
-    `Anterior thalamic radiation` = "#d9d933",
-    `Corticospinal tract` = "#D296FB",
-    `Cingulum (cingulate gyrus)` = "#009A9B",
-    `Cingulum (angular bundle)` = "#98CA07",
-    `Forceps major` = "#AA7484",
-    `Forceps minor` =  "#C96963",
-    `Inferior longitudinal fasciculus` = "#949C2E",
-    `Superior longitudinal fasciculus` = "#9f9bc7",
-    `Uncinate fasciculus` = "#6996FE",
-    `Superior longitudinal fasciculus (temporal part)` = "#98FCFF",
-    `Cerebral spinal fluid` = "grey20"
-  )
-)
-usethis::use_data(brain_pals, internal = TRUE, overwrite = TRUE)
-
 devtools::load_all("../../ggsegExtra/")
-tracula_3d <- ggsegExtra:::restruct_old_3datlas(tracula_3d)
-tracula_3d <- as_ggseg3d_atlas(tracula_3d)
-usethis::use_data(tracula_3d, internal = FALSE, overwrite = TRUE)
+devtools::load_all(".")
+
+# Make palette
+brain_pals <- make_palette_ggseg(tracula_3d)
+usethis::use_data(brain_pals, internal = TRUE, overwrite = TRUE)
+devtools::load_all(".")
+
+# fix atlas
+tracula_n <- tracula
+tracula_n <- unnest(tracula_n, ggseg)
+tracula_n <- group_by(tracula_n, label, hemi,  side, region, .id)
+tracula_n <- nest(tracula_n)
+tracula_n <- group_by(tracula_n, hemi,  side, region)
+tracula_n <- mutate(tracula_n, .subid = row_number())
+tracula_n <- unnest(tracula_n, data)
+tracula_n <- ungroup(tracula_n)
+tracula_n <- mutate(tracula_n,
+                region = as.character(region),
+                region = gsub("angular bundle", "hippocampus", region),
+                region = ifelse(grepl("fluid", region), NA, region))
+tracula_n <- as_ggseg_atlas(tracula_n)
+
+tracula_n %>%
+  ggseg(atlas = ., show.legend = TRUE,
+        colour = "black",
+        mapping = aes(fill=region)) +
+  scale_fill_brain("tracula", package = "ggsegTracula", na.value = "black")
+
+
+tracula <- tracula_n
+usethis::use_data(tracula,
+                  internal = FALSE,
+                  overwrite = TRUE,
+                  compress="xz")
