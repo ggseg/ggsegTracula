@@ -10,7 +10,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%",
-  fig.width = 10
+  fig.width = 10, 
+  fig.retina = 3
 )
 devtools::load_all(".")
 ```
@@ -41,8 +42,7 @@ library(ggseg)
 library(ggseg3d)
 library(ggsegTracula)
 
-ggseg(atlas = tracula, mapping = aes(fill = region)) +
-  scale_fill_brain("tracula", package = "ggsegTracula") +
+plot(tracula) +
   theme(legend.position = "bottom", 
         legend.text = element_text(size = 9)) +
   guides(fill = guide_legend(ncol = 3))

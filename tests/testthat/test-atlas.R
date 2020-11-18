@@ -1,22 +1,17 @@
 # ggseg ----
-context("test-adapt_scales")
-test_that("Check that ggseg:::adapt_scales is working", {
-  expect_equal(mode(ggseg:::adapt_scales(unnest(tracula, ggseg))), "list")
-})
-
 context("test-palettes")
 test_that("check new palettes work", {
   expect_equal(length(brain_pal("tracula", package = "ggsegTracula")), 10)
 
   expect_error(brain_pal("tracula"), "not a valid")
 
-  expect_true(all(names(brain_pal("tracula", package = "ggsegTracula")) %in% tracula$region))
+  expect_true(all(names(brain_pal("tracula", package = "ggsegTracula")) %in% brain_regions(tracula)))
 })
 
 context("test-ggseg-atlas")
 test_that("atlases are true ggseg atlases", {
 
-  expect_true(is_ggseg_atlas(tracula))
+  expect_true(is_brain_atlas(tracula))
 
 })
 
@@ -35,10 +30,7 @@ test_that("Check that polygon atlases are working", {
               scale_fill_brain("tracula", package = "ggsegTracula"),
             c("gg","ggplot"))
 
-  expect_warning(ggseg(atlas = tracula, mapping=aes(fill=area),
-                  position="stacked"), "Cannot stack")
-
-  expect_is(ggseg(atlas = tracula, mapping=aes(fill=area), adapt_scales = F ),c("gg","ggplot"))
+  expect_is(ggseg(atlas = tracula, mapping=aes(fill=region), adapt_scales = F ),c("gg","ggplot"))
 
 })
 
