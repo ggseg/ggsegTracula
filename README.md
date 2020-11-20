@@ -38,6 +38,15 @@ library(ggseg)
 #> Loading required package: ggplot2
 library(ggseg3d)
 library(ggsegTracula)
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
 
 plot(tracula) +
   theme(legend.position = "bottom", 
@@ -52,28 +61,6 @@ ggseg3d(atlas = tracula_3d) %>%
   add_glassbrain() %>% 
   pan_camera("right lateral")
 ```
-
-<!-- ```{r "orca", include=FALSE} -->
-
-<!-- p <- ggseg3d(atlas = tracula_3d) %>%  -->
-
-<!--   add_glassbrain(hemisphere = "left")%>% -->
-
-<!--   pan_camera("right lateral") %>%  -->
-
-<!--   plotly::add_annotations( text="Screen capture", -->
-
-<!--                   legendtitle=TRUE, showarrow=FALSE, -->
-
-<!--                   font = list(color = "#000000b4", -->
-
-<!--                               family = 'sans serif', -->
-
-<!--                               size = 50)) -->
-
-<!-- plotly::orca(p, "man/figures/README-3d-plot.png") -->
-
-<!-- ``` -->
 
 <img src="man/figures/README-3d-plot.png" width="100%" />
 
