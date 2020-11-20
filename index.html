@@ -89,6 +89,15 @@
 <span class="co">#&gt; Loading required package: ggplot2</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/LCBC-UiO/ggseg3d">ggseg3d</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/LCBC-UiO/ggsegTracula">ggsegTracula</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'dplyr'</span>
+<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     filter, lag</span>
+<span class="co">#&gt; The following objects are masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tracula</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, 
@@ -99,17 +108,6 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggseg3d/man/ggseg3d.html">ggseg3d</a></span><span class="op">(</span>atlas <span class="op">=</span> <span class="va">tracula_3d</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/ggseg3d/man/add_glassbrain.html">add_glassbrain</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/ggseg3d/man/pan_camera.html">pan_camera</a></span><span class="op">(</span><span class="st">"right lateral"</span><span class="op">)</span></code></pre></div>
-<!-- ```{r "orca", include=FALSE} -->
-<!-- p <- ggseg3d(atlas = tracula_3d) %>%  -->
-<!--   add_glassbrain(hemisphere = "left")%>% -->
-<!--   pan_camera("right lateral") %>%  -->
-<!--   plotly::add_annotations( text="Screen capture", -->
-<!--                   legendtitle=TRUE, showarrow=FALSE, -->
-<!--                   font = list(color = "#000000b4", -->
-<!--                               family = 'sans serif', -->
-<!--                               size = 50)) -->
-<!-- plotly::orca(p, "man/figures/README-3d-plot.png") -->
-<!-- ``` -->
 <p><img src="reference/figures/README-3d-plot.png" width="100%"></p>
 <p>Please note that the ‘ggsegTracula’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
