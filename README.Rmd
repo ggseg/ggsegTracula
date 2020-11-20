@@ -13,7 +13,6 @@ knitr::opts_chunk$set(
   fig.width = 10, 
   fig.retina = 3
 )
-devtools::load_all(".")
 ```
 
 # ggsegTracula
@@ -22,6 +21,7 @@ devtools::load_all(".")
 [![Travis build status](https://travis-ci.com/LCBC-UiO/ggsegTracula.svg?branch=master)](https://travis-ci.com/LCBC-UiO/ggsegTracula)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/LCBC-UiO/ggsegTracula?branch=master&svg=true)](https://ci.appveyor.com/project/LCBC-UiO/ggsegTracula)
 [![Codecov test coverage](https://codecov.io/gh/LCBC-UiO/ggsegTracula/branch/master/graph/badge.svg)](https://codecov.io/gh/LCBC-UiO/ggsegTracula?branch=master)
+[![R build status](https://github.com/LCBC-UiO/ggsegTracula/workflows/R-CMD-check/badge.svg)](https://github.com/LCBC-UiO/ggsegTracula/actions)
 <!-- badges: end -->
 
 This package contains dataset for plotting the Tracula white matter tracts with ggseg and ggseg3d. 

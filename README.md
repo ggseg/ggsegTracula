@@ -11,6 +11,8 @@ status](https://travis-ci.com/LCBC-UiO/ggsegTracula.svg?branch=master)](https://
 status](https://ci.appveyor.com/api/projects/status/github/LCBC-UiO/ggsegTracula?branch=master&svg=true)](https://ci.appveyor.com/project/LCBC-UiO/ggsegTracula)
 [![Codecov test
 coverage](https://codecov.io/gh/LCBC-UiO/ggsegTracula/branch/master/graph/badge.svg)](https://codecov.io/gh/LCBC-UiO/ggsegTracula?branch=master)
+[![R build
+status](https://github.com/LCBC-UiO/ggsegTracula/workflows/R-CMD-check/badge.svg)](https://github.com/LCBC-UiO/ggsegTracula/actions)
 <!-- badges: end -->
 
 This package contains dataset for plotting the Tracula white matter
@@ -33,6 +35,7 @@ remotes::install_github("LCBC-UiO/ggsegTracula")
 
 ``` r
 library(ggseg)
+#> Loading required package: ggplot2
 library(ggseg3d)
 library(ggsegTracula)
 
