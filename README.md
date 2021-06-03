@@ -1,18 +1,15 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggsegTracula
+# ggsegTracula <img src='man/figures/logo.png' align="right" height="138.5" />
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.com/LCBC-UiO/ggsegTracula.svg?branch=master)](https://travis-ci.com/LCBC-UiO/ggsegTracula)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/LCBC-UiO/ggsegTracula?branch=master&svg=true)](https://ci.appveyor.com/project/LCBC-UiO/ggsegTracula)
 [![Codecov test
 coverage](https://codecov.io/gh/LCBC-UiO/ggsegTracula/branch/master/graph/badge.svg)](https://codecov.io/gh/LCBC-UiO/ggsegTracula?branch=master)
 [![R build
 status](https://github.com/LCBC-UiO/ggsegTracula/workflows/R-CMD-check/badge.svg)](https://github.com/LCBC-UiO/ggsegTracula/actions)
+[![DOI](https://zenodo.org/badge/250281064.svg)](https://zenodo.org/badge/latestdoi/250281064)
 <!-- badges: end -->
 
 This package contains dataset for plotting the Tracula white matter
@@ -20,10 +17,23 @@ tracts with ggseg and ggseg3d.
 
 Yendiki et al. (2011) *Automated probabilistic reconstruction of
 white-matter pathways in health and disease using an atlas of the
-underlying anatomy*. Front. Neuroinform. 5:23.
-[doi: 10.3389/fninf.2011.00023](https://www.ncbi.nlm.nih.gov/pubmed/22016733)
+underlying anatomy*. Front. Neuroinform. 5:23. [doi:
+10.3389/fninf.2011.00023](https://www.ncbi.nlm.nih.gov/pubmed/22016733)
 
 ## Installation
+
+We recommend installing the ggseg-atlases through the ggseg
+[r-universe](https://ggseg.r-universe.dev/ui#builds):
+
+``` r
+# Enable this universe
+options(repos = c(
+    ggseg = 'https://ggseg.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'))
+
+# Install some packages
+install.packages('ggsegTracula')
+```
 
 You can install the released version of ggsegTracula from
 [GitHub](https://github.com/) with:
@@ -35,7 +45,7 @@ remotes::install_github("LCBC-UiO/ggsegTracula")
 
 ``` r
 library(ggseg)
-#> Loading required package: ggplot2
+library(ggplot2)
 library(ggseg3d)
 library(ggsegTracula)
 library(dplyr)
@@ -54,7 +64,7 @@ plot(tracula) +
   guides(fill = guide_legend(ncol = 3))
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ``` r
 ggseg3d(atlas = tracula_3d) %>% 
